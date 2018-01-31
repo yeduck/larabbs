@@ -44,6 +44,6 @@ class SeedCategoriesData extends Migration
     public function down()
     {
         //
-        DB::table('categories')->truncate();
+        DB::table('categories')->truncate();php artisan make:scaffold Projects --schema="name:string:index,description:text:nullable,subscriber_count:integer:unsigned:default(0)"php artisan make:scaffold Projects --schema="name:string:index,description:text:nullable,subscriber_count:integer:unsigned:default(0)"
     }
 }
