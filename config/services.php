@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'baidu_translate' => [
+        'appid' => env('20180131000119971'),
+        'key'   => env('so_piay0njVNP0AKViRn'),
+    ],
+
 ];
