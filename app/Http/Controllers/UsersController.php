@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Handlers\ImageUploadHandler;
+use Hash;
 
 class UsersController extends Controller
 {
@@ -17,6 +18,7 @@ class UsersController extends Controller
     //显示用户资料
     public function show(User $user)
     {
+        echo Hash::make('aaaaaa');
         return view('users.show', compact('user'));
     }
 
