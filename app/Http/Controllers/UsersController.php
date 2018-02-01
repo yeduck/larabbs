@@ -29,15 +29,16 @@ class UsersController extends Controller
     //保存用户编辑
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
-        $this->authorize('update', $user);
-        $arrData = $request->all();
+        $data = $request->all();
         if ($request->avatar) {
-            $arrResult = $uploader->save($request->avatar, 'avatars', $user->id, 362);
-            if ($arrResult) {
-                $arrData['avatar'] = $arrResult['path'];
+            $result = $uploader->save($request->avatar, 'avatars', $user->id);
+
+            if ($result) {
+                $data['avatar'] = $result['path'];
             }
         }
-        $user->update($arrData);
+        $user->update($data);
+
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
     }
 }

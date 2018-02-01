@@ -80,10 +80,10 @@ class User extends Authenticatable
     public function setAvatarAttribute($path)
     {
         // 如果不是 `http` 子串开头，那就是从后台上传的，需要补全 URL
-        if ( ! starts_with($path, 'http')) {
+        if ( ! starts_with($path, '/uploads/images/avatars/')) {
 
             // 拼接完整的 URL
-            $path = "/uploads/images/avatars/$path";
+            $path = '/uploads/images/avatars/'.$path;
         }
 
         $this->attributes['avatar'] = $path;
